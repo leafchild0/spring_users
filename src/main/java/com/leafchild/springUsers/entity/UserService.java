@@ -1,6 +1,4 @@
-package com.leafchild.springUsers.service;
-
-import com.leafchild.springUsers.entity.UserEntity;
+package com.leafchild.springUsers.entity;
 
 import java.util.List;
 

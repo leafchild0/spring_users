@@ -1,7 +1,7 @@
 package com.leafchild.springUsers.controllers;
 
 import com.leafchild.springUsers.entity.UserEntity;
-import com.leafchild.springUsers.service.UserService;
+import com.leafchild.springUsers.entity.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
