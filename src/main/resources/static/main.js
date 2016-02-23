@@ -27,8 +27,6 @@
         };
 
         $scope.addUser = function (user) {
-            //TODO: Generate ID
-            //user.id = $scope.existingUsers.length + 1;
 
             userService.getUsers().save(user).$promise.then(
                 function (response) {
@@ -91,14 +89,16 @@
 
             var found = '';
             $scope.existingUsers.forEach(function (user) {
-                if (parseInt(user.id) === parseInt(id)) found = user;;
+                if (parseInt(user.id) === parseInt(id)) found = user;
             });
 
             return found;
         };
 
         $scope.editUser = function ($index) {
-            $scope.currentUser = $scope.existingUsers[$index];
+
+            var edit = angular.copy($scope.existingUsers[$index]);
+            $scope.currentUser = edit;
             $scope.editing = true;
         };
 

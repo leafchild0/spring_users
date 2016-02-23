@@ -1,8 +1,9 @@
 package com.leafchild.springUsers.controllers;
 
-import com.leafchild.springUsers.entity.UserDao;
 import com.leafchild.springUsers.entity.UserEntity;
 import com.leafchild.springUsers.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,6 +25,9 @@ public class UserController {
     @Autowired
     UserService uService;
 
+    private static final Logger logger =
+            LoggerFactory.getLogger(UserController.class);
+
 
     //Get All the users
     @RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -42,7 +46,7 @@ public class UserController {
         UserEntity user = uService.getUserByID(id);
 
         if(user == null) {
-            System.out.println("User with id " + id + " not found");
+            logger.error("User with id " + id + " not found");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -68,7 +72,7 @@ public class UserController {
         UserEntity foundUser = uService.getUserByID(id);
 
         if(foundUser == null) {
-            System.out.println("Requested user " + id + " not found");
+            logger.error("Requested user " + id + " not found");
             return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
         }
 
@@ -89,7 +93,7 @@ public class UserController {
         UserEntity foundUser = uService.getUserByID(id);
 
         if(foundUser == null) {
-            System.out.println("Requested user " + id + " not found");
+            logger.error("Requested user " + id + " not found");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

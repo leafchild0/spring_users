@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Time: 15:27
  */
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class UserEntity implements Serializable {
 
     @Id

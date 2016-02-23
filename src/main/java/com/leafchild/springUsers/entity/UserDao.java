@@ -46,16 +46,16 @@ public class UserDao {
      */
     @SuppressWarnings("unchecked")
     public List getAll() {
-        return entityManager.createQuery("from users").getResultList();
+        return entityManager.createNativeQuery("SELECT * FROM users").getResultList();
     }
 
     /**
      * Return the user having the passed email.
      */
     public UserEntity getByName(String name) {
-        return (UserEntity) entityManager.createQuery(
-                "from users where name = :name")
-                .setParameter("name", name)
+        return (UserEntity) entityManager.createNativeQuery(
+                "SELECT * FROM users WHERE NAME = ?1")
+                .setParameter(1, name)
                 .getSingleResult();
     }
 

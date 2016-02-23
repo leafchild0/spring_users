@@ -30,7 +30,7 @@
 	<h2>Users App</h2>
 
 	<div class="col-sm-9 col-md-6 col-md-push-3" id="userAdd">
-		<form class="form-horizontal " name="userForm" ng-submit="addUser(currentUser)" novalidate>
+		<form class="form-horizontal " name="userForm" ng-submit="addUser(currentUser)" ng-init="populateUsers()" novalidate>
 
 			<div class="form-group"
 			     ng-class="{ 'has-error' : userForm.userName.$error.required && !userForm.userName.$pristine }">
