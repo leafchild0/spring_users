@@ -1,19 +1,15 @@
 package com.leafchild.springUsers;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -63,7 +59,6 @@ public class DataBaseConfig {
         LocalSessionFactoryBean sessionBuilder = new LocalSessionFactoryBean();
 
         sessionBuilder.setDataSource(dataSource());
-        //sessionBuilder.addAnnotatedClasses(UserEntity.class);
 
         sessionBuilder.setPackagesToScan(env.getProperty("entitymanager.packagesToScan"));
 
@@ -88,19 +83,19 @@ public class DataBaseConfig {
     }
 
 
-    @Bean
+    /*@Bean
     @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);
 
         return txManager;
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
-    }
+    }*/
 
 
 }

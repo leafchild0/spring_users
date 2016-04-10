@@ -13,6 +13,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class SpringUsersApplication {
 
 	public static void main(String[] args) {
+
+		//Session session = HibernateUtil.getSessionFactory().openSession();
+
+		//session.beginTransaction();
+		//session.close();
 		SpringApplication.run(SpringUsersApplication.class, args);
 	}
 }
